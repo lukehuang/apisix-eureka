@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: apisix-eureka
+server:
+  port: 8761
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
